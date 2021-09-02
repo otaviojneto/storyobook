@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import theme from '../../theme/ota';
+import theme from '../../styles/colors';
 import { darken, lighten } from 'polished';
 import { prop, switchProp } from 'styled-tools';
 
