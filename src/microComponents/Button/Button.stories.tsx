@@ -1,8 +1,9 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import Button, { ButtonProps } from '.';
+import theme from '../../styles/colors';
 
-import icon from '../../icons/icon-omnibees.svg';
+import icon from '../../Icons/icon-omnibees.svg';
 
 export default {
   title: 'Micro Components/Button',
@@ -15,6 +16,7 @@ export default {
     },
     disabled: { control: 'boolean' },
     block: { control: 'boolean' },
+    borderRadius: { control: 'text' },
     color: { description: 'color', control: 'color' },
     colorText: { description: 'colorText', control: 'color' },
     size: {
@@ -37,8 +39,8 @@ const Template: Story = ({
   block,
   size = 'medium',
   disabled = false,
-  color = '#bdbdbd',
-  colorText,
+  color = `${theme.colors?.gray4}`,
+  colorText = `${theme.colors?.black}`,
 }: ButtonProps) => (
   <>
     <Button

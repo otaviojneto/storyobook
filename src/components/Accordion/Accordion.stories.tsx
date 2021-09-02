@@ -1,8 +1,15 @@
 import React from 'react';
 import Accordion from './Accordion';
 
-import { IcDocument, IcMonetization, IcPerson, IcReceipt } from '../../icons';
+import {
+  IcChevronDown,
+  IcPerson,
+  IcDocument,
+  IcMonetization,
+  IcReceipt,
+} from '../../Icons';
 import Panel, { AccordionType } from './Panel';
+import { Box, RatingView } from '../../microComponents';
 
 export default {
   title: 'Components/Accordion',
@@ -48,21 +55,21 @@ const Information = [
     icon: IcPerson,
     name: 'Informação Pessoal',
   },
-  {
-    id: 2,
-    icon: IcDocument,
-    name: 'Informação de Faturação',
-  },
-  {
-    id: 3,
-    icon: IcMonetization,
-    name: 'Pagamento',
-  },
-  {
-    id: 4,
-    icon: IcReceipt,
-    name: 'Políticas',
-  },
+  // {
+  //   id: 2,
+  //   icon: IcDocument,
+  //   name: 'Informação de Faturação',
+  // },
+  // {
+  //   id: 3,
+  //   icon: IcMonetization,
+  //   name: 'Pagamento',
+  // },
+  // {
+  //   id: 4,
+  //   icon: IcReceipt,
+  //   name: 'Políticas',
+  // },
 ];
 
 export const AccordionComponent = ({
@@ -72,7 +79,14 @@ export const AccordionComponent = ({
   colorHeaderText,
   ContentBg,
   sizeHeaderText,
+  header,
 }: AccordionType) => {
+  const RenderHeader = (
+    <Box backgroundColor="red">
+      <h2>Lorem</h2>
+    </Box>
+  );
+
   return (
     <Accordion>
       {Information.map(item => (
@@ -84,8 +98,13 @@ export const AccordionComponent = ({
           ContentBg={ContentBg}
           icon={item.icon}
           sizeHeaderText={sizeHeaderText}
+<<<<<<< HEAD
           title={item.name}
+          id={1}
+=======
+          header={RenderHeader}
           id={item.id}
+>>>>>>> 741a501e304375f6f396dc643702a9053e158140
         >
           Lorem ipsum dolor sit amet consectetur adipisicing
           elit. Ex, esse aliquid culpa animi natus nulla
@@ -105,6 +124,12 @@ export const Colapse = ({
   ContentBg,
   sizeHeaderText,
 }: AccordionType) => {
+  const RenderHeader = (
+    <Box backgroundColor="blue">
+      <h2>Lorem</h2>
+    </Box>
+  );
+
   return (
     <>
       {Information.map(item => (
@@ -117,8 +142,13 @@ export const Colapse = ({
             ContentBg={ContentBg}
             icon={item.icon}
             sizeHeaderText={sizeHeaderText}
+<<<<<<< HEAD
             title={item.name}
+            id={1}
+=======
+            header={RenderHeader}
             id={item.id}
+>>>>>>> 741a501e304375f6f396dc643702a9053e158140
           >
             Lorem ipsum dolor sit amet consectetur adipisicing
             elit. Ex, esse aliquid culpa animi natus nulla

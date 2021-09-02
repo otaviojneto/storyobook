@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { ReactElement, useContext } from 'react';
 import { AccordionContext } from './Accordion';
 import {
   Content,
@@ -8,27 +8,28 @@ import {
   OpenTabProps,
   Tab,
 } from './styles';
-import { IcChevronDown } from '../../icons';
+import { IcChevronDown } from '../../Icons';
+import theme from '../../theme/ota';
 
 export type AccordionType = OpenTabProps & {
   expandIcon?: string;
   icon?: string;
   id: number;
-  title?: string;
+  header: ReactElement;
 };
 
 const Panel: React.FC<AccordionType> = ({
-  bg = '#ffffff',
+  bg = `${theme.colors?.white}`,
   bgColorHeader,
   expandIcon = IcChevronDown,
   children,
-  colorDivider = '#e9e9e9',
-  ContentBg = '#ffffff',
+  colorDivider = `${theme.colors?.gray2}`,
+  ContentBg = `${theme.colors?.white}`,
   colorHeaderText,
   icon,
   id,
   sizeHeaderText = 13,
-  title,
+  header,
 }) => {
   const { activeTab, handleChange } =
     useContext(AccordionContext);
@@ -41,9 +42,11 @@ const Panel: React.FC<AccordionType> = ({
         sizeHeaderText={sizeHeaderText}
         onClick={() => handleChange(id)}
       >
-        {icon && <Icon src={icon} alt="icon" />}
+        <div>
+          {icon && <Icon src={icon} alt="icon" />}
 
-        <p>{title}</p>
+          {header}
+        </div>
 
         <ExpandIcon
           src={expandIcon}

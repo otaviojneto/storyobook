@@ -1,14 +1,18 @@
 import styled, { css } from 'styled-components';
+import theme from '../../theme/ota';
 import { darken, lighten } from 'polished';
 import { prop, switchProp } from 'styled-tools';
 
 interface ButtonProps {
   block?: boolean;
+  borderRadius?: string;
   color?: string;
   colorText?: string;
   marginBottom?: number;
   marginLeft?: number;
   marginTop?: number;
+  padding?: number;
+  paddingX?: number;
   size?: string;
   variant?: string;
 }
@@ -18,9 +22,10 @@ const lightenValue = 0.2;
 
 const styles = css<ButtonProps>`
   align-items: center;
-  background-color: #bdbdbd;
-  border-radius: 4px;
-  color: #000000;
+  background-color: ${theme.colors?.gray4};
+  border-radius: ${({ borderRadius }) =>
+    borderRadius ? borderRadius : '4px'};
+  color: ${theme.colors?.gray4};
   display: inline-flex;
   font-size: 14px;
   font-weight: bold;
@@ -30,6 +35,9 @@ const styles = css<ButtonProps>`
   margin-left: ${({ marginLeft }) => marginLeft && marginLeft}px;
   margin-top: ${({ marginTop }) => marginTop && marginTop}px;
   line-height: 16px;
+  padding: ${({ padding }) => padding && padding}px;
+  padding: ${({ paddingX }) =>
+    paddingX ? `0 ${paddingX}` : ''}px;
   transition: 0.15s ease-in-out;
 
   ${({ block }) =>
@@ -81,8 +89,9 @@ const state = {
     &:active,
     &:focus {
       background-color: ${({ color }) =>
-        darken(darkenValue, color) ??
-        darken(darkenValue, '#000')};
+        color
+          ? darken(darkenValue, color)
+          : darken(darkenValue, `${theme.colors?.black}`)};
       transition: 0.15s ease-in-out;
     }
   `,
@@ -90,17 +99,19 @@ const state = {
   outline: css<ButtonProps>`
     background-color: transparent;
     border: 1px solid ${({ colorText }) => colorText};
-    border-color: ${({ colorText }) => colorText ?? '#bdbdbd'};
+    border-color: ${({ colorText }) =>
+      colorText ?? `${theme.colors?.gray4}`};
     color: ${({ colorText }) =>
-      colorText ? colorText : '#000000'};
+      colorText ? colorText : `${theme.colors?.black}`};
     justify-content: center;
 
     &:hover,
     &:active,
     &:focus {
       background-color: ${({ color }) =>
-        lighten(lightenValue, color) ??
-        lighten(lightenValue, '#000')};
+        color
+          ? lighten(lightenValue, color)
+          : lighten(lightenValue, `${theme.colors?.black}`)};
       transition: 0.15s ease-in-out;
     }
   `,
@@ -109,7 +120,7 @@ const state = {
     background-color: transparent;
     border: none;
     color: ${({ colorText }) =>
-      colorText ? colorText : '#0c83d9'};
+      colorText ? colorText : `${theme.colors?.info}`};
     font-size: 12px;
     justify-content: flex-start;
     padding: 0;
@@ -158,13 +169,13 @@ export const Btn = styled.button<ButtonProps>`
 
     svg,
     span {
-      color: #dcd5d5;
+      color: ${theme.colors?.gray3};
     }
 
     &:hover,
     &:active,
     &:focus {
-      background-color: #dcd5d5;
+      background-color: ${theme.colors?.gray3};
       transition: 0.15s ease-in-out;
     }
   }

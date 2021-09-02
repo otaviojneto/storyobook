@@ -6,6 +6,7 @@ export type ButtonProps =
     variant?: 'contained' | 'outline' | 'text';
     border?: boolean;
     borderColor?: string;
+    borderRadius?: string;
     block?: boolean;
     color?: string;
     colorText?: string;
@@ -13,6 +14,8 @@ export type ButtonProps =
     marginBottom?: number;
     marginLeft?: number;
     marginTop?: number;
+    padding?: number;
+    paddingX?: number;
     size?:
       | 'minimum'
       | 'small'
@@ -26,6 +29,7 @@ export type ButtonProps =
 
 const Button: React.FC<ButtonProps> = ({
   block,
+  borderRadius,
   children,
   colorText,
   color,
@@ -35,6 +39,8 @@ const Button: React.FC<ButtonProps> = ({
   marginTop,
   onClick,
   endIcon,
+  padding,
+  paddingX,
   size,
   startIcon,
   variant = 'contained',
@@ -44,12 +50,15 @@ const Button: React.FC<ButtonProps> = ({
     as={href && 'a'}
     href={href}
     block={block}
+    borderRadius={borderRadius}
     color={color}
     colorText={colorText}
     marginBottom={marginBottom}
     marginLeft={marginLeft}
     marginTop={marginTop}
     onClick={onClick}
+    padding={padding}
+    paddingX={paddingX}
     variant={variant}
     size={size}
     {...rest}
