@@ -8,14 +8,15 @@ import {
   OpenTabProps,
   Tab,
 } from './styles';
-import { IcChevronDown } from '../../Icons';
-import theme from '../../theme/ota';
+import { IcChevronDown } from '../../icons';
+import theme from '../../styles/colors';
 
 export type AccordionType = OpenTabProps & {
   expandIcon?: string;
   icon?: string;
   id: number;
-  header: ReactElement;
+  header: ReactElement | string;
+  ContentBg?: string;
 };
 
 const Panel: React.FC<AccordionType> = ({
@@ -23,13 +24,16 @@ const Panel: React.FC<AccordionType> = ({
   bgColorHeader,
   expandIcon = IcChevronDown,
   children,
-  colorDivider = `${theme.colors?.gray2}`,
+  colorDivider = `${theme.colors?.gray}`,
   ContentBg = `${theme.colors?.white}`,
   colorHeaderText,
   icon,
   id,
   sizeHeaderText = 13,
   header,
+  paddingHeader,
+  childrenPaddingX,
+  childrenPaddingY,
 }) => {
   const { activeTab, handleChange } =
     useContext(AccordionContext);
@@ -41,6 +45,7 @@ const Panel: React.FC<AccordionType> = ({
         bgColorHeader={bgColorHeader}
         sizeHeaderText={sizeHeaderText}
         onClick={() => handleChange(id)}
+        paddingHeader={paddingHeader}
       >
         <div>
           {icon && <Icon src={icon} alt="icon" />}
@@ -58,6 +63,8 @@ const Panel: React.FC<AccordionType> = ({
       <Content
         isOpen={activeTab.includes(id)}
         ContentBg={ContentBg}
+        childrenPaddingX={childrenPaddingX}
+        childrenPaddingY={childrenPaddingY}
       >
         {children}
       </Content>

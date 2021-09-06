@@ -1,18 +1,22 @@
 import styled from 'styled-components';
-import type { Theme } from '../../theme';
-import { themeColor } from '../../theme';
+import themeColor from '../../styles/colors';
+
 export type OpenTabProps = {
   bg?: string;
   bgColorHeader?: string;
-  isOpen?: boolean;
   colorDivider?: string;
   colorHeaderText?: string;
-  ContentBg?: string;
+  contentBg?: string;
+  isOpen?: boolean;
+  paddingHeader?: number;
+  childrenPaddingX?: number;
+  childrenPaddingY?: number;
   sizeHeaderText?: number;
 };
 
 export const Tab = styled.div<OpenTabProps>`
-  background-color: ${({ bg, theme }) => themeColor(theme, bg)};
+  background-color: ${({ bg }) =>
+    bg && `${themeColor.colors.grey}`};
   border-radius: 4px 4px 0 0;
   cursor: pointer;
   height: 100%;
@@ -23,8 +27,7 @@ export const Tab = styled.div<OpenTabProps>`
   & + div {
     border-radius: 0;
     &::before {
-      background-color: ${({ colorDivider, theme }) =>
-        themeColor(theme, colorDivider)};
+      background-color: ${({ colorDivider }) => colorDivider};
       content: '';
       height: 1px;
       left: 20px;
@@ -38,17 +41,16 @@ export const Tab = styled.div<OpenTabProps>`
 
 export const Hero = styled.div<OpenTabProps>`
   align-items: center;
-  background-color: ${({ theme, bgColorHeader }) =>
-    themeColor(theme, bgColorHeader)};
+  background-color: ${({ bgColorHeader }) => bgColorHeader};
   border-radius: 2px;
   display: flex;
-  padding: 20px;
+  padding: ${({ paddingHeader }) =>
+    paddingHeader && paddingHeader}px;
   width: 100%;
 
   div {
     display: flex;
-    color: ${({ theme, colorHeaderText }) =>
-      themeColor(theme, colorHeaderText)};
+    color: ${({ theme }) => theme};
     cursor: pointer;
     flex: 1;
     font-size: ${({ sizeHeaderText }) =>
@@ -70,12 +72,22 @@ export const ExpandIcon = styled.img<OpenTabProps>`
 `;
 
 export const Content = styled.div<OpenTabProps>`
-  background-color: ${({ ContentBg }) => ContentBg};
+  background-color: ${({ contentBg }) => contentBg};
   cursor: default;
   height: ${({ isOpen }) => (isOpen ? 'auto' : 0)};
-  padding: ${({ isOpen }) =>
-    isOpen ? '8px 20px 20px' : '0 20px'};
-  transition: ease-in-out 0.4s;
+
+  padding-left: ${({ childrenPaddingX }) =>
+    childrenPaddingX && childrenPaddingX}px;
+  padding-right: ${({ childrenPaddingX }) =>
+    childrenPaddingX && childrenPaddingX}px;
+  padding-top: ${({ childrenPaddingY }) =>
+    childrenPaddingY && childrenPaddingY}px;
+  padding-bottom: ${({ childrenPaddingY }) =>
+    childrenPaddingY && childrenPaddingY}px;
+
+  padding: ${({ isOpen, childrenPaddingX, childrenPaddingY }) =>
+    isOpen ? `${childrenPaddingY}, ${childrenPaddingX}` : '0'};
+  transition: ease-out 0.3s;
   overflow: ${({ isOpen }) => (isOpen ? '' : 'hidden')};
   width: 100%;
 `;

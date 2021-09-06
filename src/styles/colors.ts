@@ -1,5 +1,6 @@
 export default {
   name: 'Neto',
+
   breakpoints: {
     sm: '600px',
     md: '960px',

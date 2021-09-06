@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react';
 import Button, { ButtonProps } from '.';
 import theme from '../../styles/colors';
 
-import icon from '../../Icons/icon-omnibees.svg';
+import icon from '../../icons/icon-omnibees.svg';
 
 export default {
   title: 'Micro Components/Button',

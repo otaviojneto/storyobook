@@ -7,7 +7,7 @@ import {
   IcDocument,
   IcMonetization,
   IcReceipt,
-} from '../../Icons';
+} from '../../icons';
 import Panel, { AccordionType } from './Panel';
 import { Box, RatingView } from '../../microComponents';
 
@@ -46,6 +46,17 @@ export default {
         options: [IcPerson, IcDocument, IcMonetization],
       },
     },
+    paddingHeader: {
+      control: 'text',
+    },
+
+    childrenPaddingX: {
+      control: 'text',
+    },
+
+    childrenPaddingY: {
+      control: 'text',
+    },
   },
 };
 
@@ -78,8 +89,11 @@ export const AccordionComponent = ({
   colorDivider,
   colorHeaderText,
   ContentBg,
-  sizeHeaderText,
   header,
+  paddingHeader,
+  sizeHeaderText,
+  childrenPaddingX,
+  childrenPaddingY,
 }: AccordionType) => {
   const RenderHeader = (
     <Box backgroundColor="red">
@@ -98,13 +112,11 @@ export const AccordionComponent = ({
           ContentBg={ContentBg}
           icon={item.icon}
           sizeHeaderText={sizeHeaderText}
-<<<<<<< HEAD
-          title={item.name}
+          header={item.name}
           id={1}
-=======
-          header={RenderHeader}
-          id={item.id}
->>>>>>> 741a501e304375f6f396dc643702a9053e158140
+          paddingHeader={paddingHeader}
+          childrenPaddingX={childrenPaddingX}
+          childrenPaddingY={childrenPaddingY}
         >
           Lorem ipsum dolor sit amet consectetur adipisicing
           elit. Ex, esse aliquid culpa animi natus nulla
@@ -122,7 +134,11 @@ export const Colapse = ({
   colorDivider,
   colorHeaderText,
   ContentBg,
+  header,
+  paddingHeader,
   sizeHeaderText,
+  childrenPaddingX,
+  childrenPaddingY,
 }: AccordionType) => {
   const RenderHeader = (
     <Box backgroundColor="blue">
@@ -142,13 +158,11 @@ export const Colapse = ({
             ContentBg={ContentBg}
             icon={item.icon}
             sizeHeaderText={sizeHeaderText}
-<<<<<<< HEAD
-            title={item.name}
-            id={1}
-=======
             header={RenderHeader}
-            id={item.id}
->>>>>>> 741a501e304375f6f396dc643702a9053e158140
+            id={1}
+            paddingHeader={paddingHeader}
+            childrenPaddingX={childrenPaddingX}
+            childrenPaddingY={childrenPaddingY}
           >
             Lorem ipsum dolor sit amet consectetur adipisicing
             elit. Ex, esse aliquid culpa animi natus nulla

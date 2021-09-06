@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import theme from '../../styles/colors';
-import { IcLocalization } from '../../Icons';
+import { IcLocalization } from '../../icons';
 
 export type DataListProps = {
   open?: boolean;
