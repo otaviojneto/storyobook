@@ -2,6 +2,8 @@ import IcBedroom from './bedroom.svg';
 import IcArrowLeft from './arrowLeft.svg';
 import IcCalendar from './calendar.svg';
 import IcChevronDown from './chevronDown.svg';
+import IcClose from './close.svg';
+import IcCloseGrey from './closeGrey.svg';
 import IcCoffe from './coffe.svg';
 import IcDocument from './document.svg';
 import IcGarage from './garage.svg';
@@ -20,6 +22,8 @@ export {
   IcCalendar,
   IcChevronDown,
   IcCoffe,
+  IcClose,
+  IcCloseGrey,
   IcDocument,
   IcGarage,
   IcEmail,

@@ -9,7 +9,8 @@ import {
   IcReceipt,
 } from '../../icons';
 import Panel, { AccordionType } from './Panel';
-import { Box, RatingView } from '../../microComponents';
+import { Box} from '../../microComponents';
+import theme from '../../styles/colors'
 
 export default {
   title: 'Components/Accordion',
@@ -66,21 +67,21 @@ const Information = [
     icon: IcPerson,
     name: 'Informação Pessoal',
   },
-  // {
-  //   id: 2,
-  //   icon: IcDocument,
-  //   name: 'Informação de Faturação',
-  // },
-  // {
-  //   id: 3,
-  //   icon: IcMonetization,
-  //   name: 'Pagamento',
-  // },
-  // {
-  //   id: 4,
-  //   icon: IcReceipt,
-  //   name: 'Políticas',
-  // },
+  {
+    id: 2,
+    icon: IcDocument,
+    name: 'Informação de Faturação',
+  },
+  {
+    id: 3,
+    icon: IcMonetization,
+    name: 'Pagamento',
+  },
+  {
+    id: 4,
+    icon: IcReceipt,
+    name: 'Políticas',
+  },
 ];
 
 export const AccordionComponent = ({
@@ -113,7 +114,7 @@ export const AccordionComponent = ({
           icon={item.icon}
           sizeHeaderText={sizeHeaderText}
           header={item.name}
-          id={1}
+          id={item.id}
           paddingHeader={paddingHeader}
           childrenPaddingX={childrenPaddingX}
           childrenPaddingY={childrenPaddingY}
@@ -141,7 +142,7 @@ export const Colapse = ({
   childrenPaddingY,
 }: AccordionType) => {
   const RenderHeader = (
-    <Box backgroundColor="blue">
+    <Box backgroundColor="white">
       <h2>Lorem</h2>
     </Box>
   );
@@ -152,7 +153,7 @@ export const Colapse = ({
         <Accordion collapse>
           <Panel
             bg={bg}
-            colorDivider={colorDivider}
+            colorDivider={`${theme.colors.primary}`}
             bgColorHeader={bgColorHeader}
             colorHeaderText={colorHeaderText}
             ContentBg={ContentBg}
