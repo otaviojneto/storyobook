@@ -50,10 +50,15 @@ export const Close = styled.button`
 export const Content = styled.div`
   display: flex;
   width: 100%;
+  background-color: red;
 
   div {
     width: 50%;
   }
 `;
 
-export const Swiper = styled(SwiperReact)``;
+export const Rooms = styled.div``;
+
+export const Swiper = styled(SwiperReact)`
+  width: 100%;
+`;

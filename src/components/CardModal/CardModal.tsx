@@ -8,13 +8,15 @@ import SwiperCore, {
   Navigation,
   Pagination,
   Scrollbar,
+  Thumbs,
   A11y,
 } from 'swiper';
 
-import { Content, Swiper } from './styles';
+import { Content, Rooms, Swiper } from './styles';
 import 'swiper/swiper.min.css';
 import 'swiper/components/navigation/navigation.min.css';
 import 'swiper/components/pagination/pagination.min.css';
+import 'swiper/components/thumbs/thumbs.min.css';
 
 import { Close, Container, Header, Modal } from './styles';
 
@@ -23,6 +25,7 @@ SwiperCore.use([
   Navigation,
   Pagination,
   Scrollbar,
+  Thumbs,
   A11y,
 ]);
 
@@ -32,6 +35,7 @@ export type RatingProps = CardInfoProps & {
 
 const CardModal: React.FC<RatingProps> = ({ Img }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   return (
     <>
@@ -47,7 +51,7 @@ const CardModal: React.FC<RatingProps> = ({ Img }) => {
             </Header>
 
             <Content>
-              <Swiper
+              {/* <Swiper
                 navigation={true}
                 slidesPerView="auto"
                 spaceBetween={18}
@@ -61,23 +65,78 @@ const CardModal: React.FC<RatingProps> = ({ Img }) => {
                 }}
               >
                 <SwiperSlide>
-                  oioioiioiooioioiiioiooooooooooo
+                  <img
+                    src="http://placehold.jp/500x300.png"
+                    alt=""
+                  />
                 </SwiperSlide>
                 <SwiperSlide>
-                  oioioiioiooioioiiioiooooooooooo
+                  <img
+                    src="http://placehold.jp/500x300.png"
+                    alt=""
+                  />
                 </SwiperSlide>
                 <SwiperSlide>
-                  oioioiioiooioioiiioiooooooooooo
+                  <img
+                    src="http://placehold.jp/500x300.png"
+                    alt=""
+                  />
                 </SwiperSlide>
-              </Swiper>
+              </Swiper> */}
 
+              <Rooms>
+                <Swiper
+                  navigation={true}
+                  slidesPerView="auto"
+                  pagination={{ clickable: true }}
+                  thumbs={{ swiper: thumbsSwiper }}
+                >
+                  <SwiperSlide>
+                    <img
+                      src="http://placehold.jp/500x300.png"
+                      alt="car"
+                    />
+                  </SwiperSlide>
 
+                  <SwiperSlide>
+                    <img
+                      src="https://image.shutterstock.com/image-illustration/number-300-white-on-light-260nw-1683875761.jpg"
+                      alt="car"
+                    />
+                  </SwiperSlide>
+                </Swiper>
 
+                <Swiper
+                  onSwiper={setThumbsSwiper}
+                  spaceBetween={10}
+                  slidesPerView="auto"
+                  freeMode
+                  watchSlidesVisibility
+                  watchSlidesProgress
+                  breakpoints={{
+                    768: {
+                      slidesPerView: 2,
+                      spaceBetween: 10,
+                    },
+                  }}
+                >
+                  <SwiperSlide>
+                    <img
+                      src="http://placehold.jp/200x300.png"
+                      alt="car"
+                    />
+                  </SwiperSlide>
 
+                  <SwiperSlide>
+                    <img
+                      src="http://placehold.jp/200x200.png"
+                      alt="car"
+                    />
+                  </SwiperSlide>
+                </Swiper>
+              </Rooms>
 
-              <div>
-                oioioioi
-              </div>
+              <div>oioioioi</div>
             </Content>
           </Container>
         </Modal>
