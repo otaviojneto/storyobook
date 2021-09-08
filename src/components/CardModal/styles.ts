@@ -60,20 +60,12 @@ export const Rooms = styled.div`
 `;
 
 export const Swiper = styled(SwiperReact)`
-  .swiper-slide {
-    img {
-      height: 230px;
-      object-fit: cover;
-      width: 100%;
-    }
-  }
-
   & + & {
     height: 100%;
     .swiper-slide {
-      height: 50px;
       cursor: pointer;
-      width: 100px;
+      height: 50px;
+      width: 100px !important;
 
       img {
         height: 50px;
@@ -81,6 +73,12 @@ export const Swiper = styled(SwiperReact)`
       }
     }
   }
+`;
+
+export const Image = styled.img`
+  height: 230px;
+  object-fit: cover;
+  width: 100%;
 `;
 
 export const Infos = styled.div`

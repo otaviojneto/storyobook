@@ -12,7 +12,7 @@ import SwiperCore, {
   A11y,
 } from 'swiper';
 
-import { Content, Infos, Rooms, Swiper } from './styles';
+import { Content, Image, Infos, Rooms, Swiper } from './styles';
 import 'swiper/swiper.min.css';
 import 'swiper/components/navigation/navigation.min.css';
 import 'swiper/components/pagination/pagination.min.css';
@@ -58,20 +58,20 @@ const CardModal: React.FC<RatingProps> = ({ Img }) => {
                   thumbs={{ swiper: thumbsSwiper }}
                 >
                   <SwiperSlide>
-                    <img
+                    <Image
                       src="https://www.ciadomolde.com.br/image/cache/data/5550000008544-200x200.jpg"
                       alt="car"
                     />
                   </SwiperSlide>
 
                   <SwiperSlide>
-                    <img
+                    <Image
                       src="https://p2.trrsf.com/image/fget/cf/460/0/images.terra.com/2013/07/31/colpatria1.jpg"
                       alt="car"
                     />
                   </SwiperSlide>
                   <SwiperSlide>
-                    <img
+                    <Image
                       src="https://www.ciadomolde.com.br/image/cache/data/5550000008544-200x200.jpg"
                       alt="car"
                     />
