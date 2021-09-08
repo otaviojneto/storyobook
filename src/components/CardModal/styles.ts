@@ -51,14 +51,30 @@ export const Content = styled.div`
   display: flex;
   width: 100%;
   background-color: red;
-
-  div {
-    width: 50%;
-  }
 `;
 
-export const Rooms = styled.div``;
+export const Rooms = styled.div`
+  padding: 30px;
+`;
 
 export const Swiper = styled(SwiperReact)`
-  width: 100%;
+  max-width: 360px;
+
+  .swiper-slide {
+    img {
+      height: 300px;
+      object-fit: cover;
+      width: 360px;
+    }
+  }
+
+  & + & {
+    .swiper-slide {
+      cursor: pointer;
+      img {
+        height: 100px;
+        width: 100px;
+      }
+    }
+  }
 `;

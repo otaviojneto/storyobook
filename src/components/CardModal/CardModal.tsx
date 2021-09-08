@@ -51,39 +51,6 @@ const CardModal: React.FC<RatingProps> = ({ Img }) => {
             </Header>
 
             <Content>
-              {/* <Swiper
-                navigation={true}
-                slidesPerView="auto"
-                spaceBetween={18}
-                pagination={{ clickable: true }}
-                centeredSlides={true}
-                breakpoints={{
-                  768: {
-                    slidesPerView: 2,
-                    spaceBetween: 10,
-                  },
-                }}
-              >
-                <SwiperSlide>
-                  <img
-                    src="http://placehold.jp/500x300.png"
-                    alt=""
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img
-                    src="http://placehold.jp/500x300.png"
-                    alt=""
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img
-                    src="http://placehold.jp/500x300.png"
-                    alt=""
-                  />
-                </SwiperSlide>
-              </Swiper> */}
-
               <Rooms>
                 <Swiper
                   navigation={true}
@@ -93,7 +60,7 @@ const CardModal: React.FC<RatingProps> = ({ Img }) => {
                 >
                   <SwiperSlide>
                     <img
-                      src="http://placehold.jp/500x300.png"
+                      src="http://placehold.jp/400x300.png"
                       alt="car"
                     />
                   </SwiperSlide>
@@ -122,14 +89,14 @@ const CardModal: React.FC<RatingProps> = ({ Img }) => {
                 >
                   <SwiperSlide>
                     <img
-                      src="http://placehold.jp/200x300.png"
+                      src="http://placehold.jp/100x100.png"
                       alt="car"
                     />
                   </SwiperSlide>
 
                   <SwiperSlide>
                     <img
-                      src="http://placehold.jp/200x200.png"
+                      src="http://placehold.jp/100x100.png"
                       alt="car"
                     />
                   </SwiperSlide>
