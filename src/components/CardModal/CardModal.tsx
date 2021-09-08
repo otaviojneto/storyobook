@@ -55,12 +55,11 @@ const CardModal: React.FC<RatingProps> = ({ Img }) => {
                 <Swiper
                   navigation={true}
                   slidesPerView="auto"
-                  pagination={{ clickable: true }}
                   thumbs={{ swiper: thumbsSwiper }}
                 >
                   <SwiperSlide>
                     <img
-                      src="http://placehold.jp/200x200.png"
+                      src="https://www.ciadomolde.com.br/image/cache/data/5550000008544-200x200.jpg"
                       alt="car"
                     />
                   </SwiperSlide>
@@ -71,10 +70,16 @@ const CardModal: React.FC<RatingProps> = ({ Img }) => {
                       alt="car"
                     />
                   </SwiperSlide>
+                  <SwiperSlide>
+                    <img
+                      src="https://www.ciadomolde.com.br/image/cache/data/5550000008544-200x200.jpg"
+                      alt="car"
+                    />
+                  </SwiperSlide>
                 </Swiper>
 
                 <Swiper
-                  onSwiper={setThumbsSwiper}
+                  onSwiper={() => setThumbsSwiper}
                   spaceBetween={10}
                   slidesPerView="auto"
                   freeMode
@@ -89,7 +94,7 @@ const CardModal: React.FC<RatingProps> = ({ Img }) => {
                 >
                   <SwiperSlide>
                     <img
-                      src="http://placehold.jp/100x100.png"
+                      src="https://www.ciadomolde.com.br/image/cache/data/5550000008544-200x200.jpg"
                       alt="car"
                     />
                   </SwiperSlide>
@@ -100,14 +105,21 @@ const CardModal: React.FC<RatingProps> = ({ Img }) => {
                       alt="car"
                     />
                   </SwiperSlide>
+                  <SwiperSlide>
+                    <img
+                      src="https://www.ciadomolde.com.br/image/cache/data/5550000008544-200x200.jpg"
+                      alt="car"
+                    />
+                  </SwiperSlide>
                 </Swiper>
               </Rooms>
 
               <Infos>
-                <img
-                  src="http://placehold.jp/500x300.png"
-                  alt=""
-                />
+                <p>descrição</p>
+                <p>quartos</p>
+                <p>garagem</p>
+                <p>localização</p>
+                <p>Preço</p>
               </Infos>
             </Content>
           </Container>

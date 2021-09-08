@@ -10,6 +10,7 @@ export default {
   colors: {
     primary: '#D46760',
     secondary: '#273240',
+    ice: '#f2f0f0',
     info: '#0C83D9',
     grey: '#BDBDBD',
     yellow: '#FFD100',

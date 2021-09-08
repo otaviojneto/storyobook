@@ -20,7 +20,7 @@ export const Modal = styled.div`
 `;
 
 export const Container = styled.div`
-  background-color: ${theme.colors.white};
+  background-color: ${theme.colors.ice};
   border-radius: 8px;
   padding: 14px;
   position: absolute;
@@ -51,7 +51,6 @@ export const Close = styled.button`
 export const Content = styled.div`
   display: flex;
   width: 100%;
-  background-color: red;
   height: 90%;
 `;
 
@@ -62,7 +61,6 @@ export const Rooms = styled.div`
 
 export const Swiper = styled(SwiperReact)`
   .swiper-slide {
-    width: 360px;
     img {
       height: 230px;
       object-fit: cover;
@@ -71,9 +69,12 @@ export const Swiper = styled(SwiperReact)`
   }
 
   & + & {
+    height: 100%;
     .swiper-slide {
+      height: 50px;
       cursor: pointer;
       width: 100px;
+
       img {
         height: 50px;
         width: 100px;
@@ -83,6 +84,7 @@ export const Swiper = styled(SwiperReact)`
 `;
 
 export const Infos = styled.div`
+  padding: 30px;
   width: 50%;
 
   img {
