@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { width } from 'styled-system';
 import { Swiper as SwiperReact } from 'swiper/react';
 import { IcClose, IcCloseGrey } from '../../icons';
 import theme from '../../styles/colors';
@@ -51,30 +52,40 @@ export const Content = styled.div`
   display: flex;
   width: 100%;
   background-color: red;
+  height: 90%;
 `;
 
 export const Rooms = styled.div`
   padding: 30px;
+  width: 50%;
 `;
 
 export const Swiper = styled(SwiperReact)`
-  max-width: 360px;
-
   .swiper-slide {
+    width: 360px;
     img {
-      height: 300px;
+      height: 230px;
       object-fit: cover;
-      width: 360px;
+      width: 100%;
     }
   }
 
   & + & {
     .swiper-slide {
       cursor: pointer;
+      width: 100px;
       img {
-        height: 100px;
+        height: 50px;
         width: 100px;
       }
     }
+  }
+`;
+
+export const Infos = styled.div`
+  width: 50%;
+
+  img {
+    width: 100%;
   }
 `;

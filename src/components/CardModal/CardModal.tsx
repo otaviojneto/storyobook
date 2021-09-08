@@ -12,7 +12,7 @@ import SwiperCore, {
   A11y,
 } from 'swiper';
 
-import { Content, Rooms, Swiper } from './styles';
+import { Content, Infos, Rooms, Swiper } from './styles';
 import 'swiper/swiper.min.css';
 import 'swiper/components/navigation/navigation.min.css';
 import 'swiper/components/pagination/pagination.min.css';
@@ -60,14 +60,14 @@ const CardModal: React.FC<RatingProps> = ({ Img }) => {
                 >
                   <SwiperSlide>
                     <img
-                      src="http://placehold.jp/400x300.png"
+                      src="http://placehold.jp/200x200.png"
                       alt="car"
                     />
                   </SwiperSlide>
 
                   <SwiperSlide>
                     <img
-                      src="https://image.shutterstock.com/image-illustration/number-300-white-on-light-260nw-1683875761.jpg"
+                      src="https://p2.trrsf.com/image/fget/cf/460/0/images.terra.com/2013/07/31/colpatria1.jpg"
                       alt="car"
                     />
                   </SwiperSlide>
@@ -96,14 +96,19 @@ const CardModal: React.FC<RatingProps> = ({ Img }) => {
 
                   <SwiperSlide>
                     <img
-                      src="http://placehold.jp/100x100.png"
+                      src="https://p2.trrsf.com/image/fget/cf/460/0/images.terra.com/2013/07/31/colpatria1.jpg"
                       alt="car"
                     />
                   </SwiperSlide>
                 </Swiper>
               </Rooms>
 
-              <div>oioioioi</div>
+              <Infos>
+                <img
+                  src="http://placehold.jp/500x300.png"
+                  alt=""
+                />
+              </Infos>
             </Content>
           </Container>
         </Modal>
