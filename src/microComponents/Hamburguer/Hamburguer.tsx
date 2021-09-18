@@ -1,10 +1,10 @@
 import React from 'react';
-import { Menu } from './styles';
+import { ColorProps, Menu } from './styles';
 
-const Hamburguer: React.FC = () => {
+const Hamburguer: React.FC<ColorProps> = ({ color }) => {
   return (
     <>
-      <Menu>
+      <Menu color={color}>
         <span></span>
       </Menu>
     </>

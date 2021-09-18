@@ -1,42 +1,63 @@
 import styled from 'styled-components';
+import theme from '../../styles/colors';
 
-export const Menu = styled.button`
-    background-color: red;
+export type ColorProps = {
+  color?: string;
+};
+
+export const Menu = styled.button<ColorProps>`
+display: none;
+
+
+@media(max-width: 568px) {
+  background-color: transparent;
+  display: block;
+  height: 24px;
+  position: relative;
+  width: 26px;
+
+  &::before {
+    background-color: ${({ color }) =>
+      color ? color : `${theme.colors.black}`};
+    content: '';
     height: 4px;
-    position: relative;
-    top: 55px;
-    width: 24px;
+    right: 0;
+    position: absolute;
+    top: 9px;
+    transition: ease-in-out 0.4s;
+    width: 17px;
+  }
 
+  &::after {
+    background-color: ${({ color }) =>
+      color ? color : `${theme.colors.black}`};
+    content: '';
+    height: 4px;
+    right: 0;
+    position: absolute;
+    top: 18px;
+    transition: ease-in-out 0.4s;
+    width: 10px;
+  }
+
+  &:hover {
+    &::after,
     &::before {
-      background-color: red;
-      content: '';
-      height: 4px;
-      position: absolute;
-      right: 0;
-      top: 9px;
-      transition: ease-in-out 0.4s;
-      width: 18px;
+      width: 100%;
     }
+  }
 
-    &::after {
-      background-color: red;
-      content: '';
-      height: 4px;
-      position: absolute;
-      right: 0;
-      top: 19px;
-      transition: ease-in-out 0.4s;
-      width: 12px;
-    }
+  span {
+    background-color: ${({ color }) =>
+      color ? color : `${theme.colors.black}`};
+    height: 4px;
+    position: absolute;
+    right: 0;
+    top: 0px;
+    width: 100%;
+  }
 
-    &:hover {
-      &::before {
-        width: 24px;
-      }
 
-      &::after {
-        width: 24px;
-      }
-    }
+
   }
 `;

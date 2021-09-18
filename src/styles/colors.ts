@@ -13,6 +13,7 @@ export default {
     ice: '#f2f0f0',
     info: '#0C83D9',
     grey: '#BDBDBD',
+    grey1: '#aba9a9a8',
     yellow: '#FFD100',
     success: '#008009',
     error: '#E60000',
