@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import theme from '../../../theme/ota';
+import theme from '../../../styles/colors';
 
 export type SelectColorsProps = {
   borderColorActive?: string;
@@ -16,7 +16,7 @@ export const Container = styled.div<SelectColorsProps>`
     border-color: ${({ borderColorActive }) =>
       borderColorActive
         ? borderColorActive
-        : `${theme?.colors?.gray5}`};
+        : `${theme?.colors?.grey1}`};
   }
 
   .MuiFormHelperText-contained {
@@ -27,11 +27,11 @@ export const Container = styled.div<SelectColorsProps>`
     color: ${({ labelColorActive }) =>
       labelColorActive
         ? labelColorActive
-        : `${theme?.colors?.gray6}`};
+        : `${theme?.colors?.grey1}`};
   }
 
   .MuiFormLabel-root {
     color: ${({ labelColor }) =>
-      labelColor ? labelColor : `${theme?.colors?.gray6}`};
+      labelColor ? labelColor : `${theme?.colors?.grey}`};
   }
 `;

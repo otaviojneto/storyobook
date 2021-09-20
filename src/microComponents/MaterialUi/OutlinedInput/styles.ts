@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import theme from '../../../theme/ota';
+import theme from '../../../styles/colors';
 
 export type StylesProps = {
   bgLabel?: string;
@@ -14,7 +14,7 @@ export const Container = styled.div<StylesProps>`
   .MuiOutlinedInput-root.Mui-focused
     .MuiOutlinedInput-notchedOutline {
     border-color: ${({ borderColor }) =>
-      borderColor ? borderColor : ` ${theme?.colors?.gray5}`};
+      borderColor ? borderColor : ` ${theme?.colors?.grey1}`};
   }
 
   .MuiFormHelperText-contained {
@@ -23,7 +23,7 @@ export const Container = styled.div<StylesProps>`
 
   .MuiFormLabel-root.Mui-focused {
     color: ${({ labelColor }) =>
-      labelColor ? labelColor : ` ${theme?.colors?.gray6}`};
+      labelColor ? labelColor : ` ${theme?.colors?.grey}`};
   }
 
   .MuiInputLabel-formControl {
