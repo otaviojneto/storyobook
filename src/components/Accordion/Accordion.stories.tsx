@@ -89,7 +89,7 @@ export const AccordionComponent = ({
   bgColorHeader,
   colorDivider,
   colorHeaderText,
-  ContentBg,
+  contentBg,
   header,
   paddingHeader,
   sizeHeaderText,
@@ -110,7 +110,7 @@ export const AccordionComponent = ({
           colorDivider={colorDivider}
           bgColorHeader={bgColorHeader}
           colorHeaderText={colorHeaderText}
-          ContentBg={ContentBg}
+          contentBg={contentBg}
           icon={item.icon}
           sizeHeaderText={sizeHeaderText}
           header={item.name}
