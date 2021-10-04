@@ -79,7 +79,7 @@ const CardModal: React.FC<RatingProps> = ({ Img }) => {
                 </Swiper>
 
                 <Swiper
-                  onSwiper={() => setThumbsSwiper}
+                  onSwiper={setThumbsSwiper}
                   spaceBetween={10}
                   slidesPerView="auto"
                   freeMode
@@ -105,6 +105,7 @@ const CardModal: React.FC<RatingProps> = ({ Img }) => {
                       alt="car"
                     />
                   </SwiperSlide>
+
                   <SwiperSlide>
                     <img
                       src="https://www.ciadomolde.com.br/image/cache/data/5550000008544-200x200.jpg"
