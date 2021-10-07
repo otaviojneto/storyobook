@@ -9,7 +9,7 @@ import {
   IcReceipt,
 } from '../../icons';
 import Panel, { AccordionType } from './Panel';
-import { Box} from '../../microComponents';
+import { Box } from '../../microComponents';
 import theme from '../../styles/colors'
 
 export default {
@@ -89,7 +89,7 @@ export const AccordionComponent = ({
   bgColorHeader,
   colorDivider,
   colorHeaderText,
-  ContentBg,
+  contentBg,
   header,
   paddingHeader,
   sizeHeaderText,
@@ -110,7 +110,7 @@ export const AccordionComponent = ({
           colorDivider={colorDivider}
           bgColorHeader={bgColorHeader}
           colorHeaderText={colorHeaderText}
-          ContentBg={ContentBg}
+          contentBg={contentBg}
           icon={item.icon}
           sizeHeaderText={sizeHeaderText}
           header={item.name}
@@ -134,7 +134,7 @@ export const Colapse = ({
   bgColorHeader,
   colorDivider,
   colorHeaderText,
-  ContentBg,
+  contentBg,
   header,
   paddingHeader,
   sizeHeaderText,
@@ -156,11 +156,11 @@ export const Colapse = ({
             colorDivider={`${theme.colors.primary}`}
             bgColorHeader={bgColorHeader}
             colorHeaderText={colorHeaderText}
-            ContentBg={ContentBg}
+            contentBg={contentBg}
             icon={item.icon}
             sizeHeaderText={sizeHeaderText}
             header={RenderHeader}
-            id={1}
+            id={item.id}
             paddingHeader={paddingHeader}
             childrenPaddingX={childrenPaddingX}
             childrenPaddingY={childrenPaddingY}

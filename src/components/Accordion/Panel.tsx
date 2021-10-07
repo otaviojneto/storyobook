@@ -16,7 +16,6 @@ export type AccordionType = OpenTabProps & {
   icon?: string;
   id: number;
   header: ReactElement | string;
-  ContentBg?: string;
 };
 
 const Panel: React.FC<AccordionType> = ({
@@ -25,7 +24,7 @@ const Panel: React.FC<AccordionType> = ({
   expandIcon = IcChevronDown,
   children,
   colorDivider = `${theme.colors?.gray}`,
-  ContentBg = `${theme.colors?.white}`,
+  contentBg = `${theme.colors?.white}`,
   colorHeaderText,
   icon,
   id,
@@ -62,7 +61,7 @@ const Panel: React.FC<AccordionType> = ({
 
       <Content
         isOpen={activeTab.includes(id)}
-        ContentBg={ContentBg}
+        contentBg={contentBg}
         childrenPaddingX={childrenPaddingX}
         childrenPaddingY={childrenPaddingY}
       >
