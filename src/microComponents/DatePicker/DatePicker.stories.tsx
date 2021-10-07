@@ -25,11 +25,15 @@ export const Datepicker = () => {
     key: 'selection',
   };
 
+  {
+    console.log(dates);
+  }
   return (
     <InputDate
       ranges={[dates]}
       onChange={handleSelect}
       rangeColors={['black']}
+      priceDay="500,00"
     />
   );
 };
