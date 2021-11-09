@@ -1,39 +1,30 @@
-import styled from 'styled-components';
-import { IcChevronRightBlack } from '../../Icons';
-import theme from '../../theme/ota';
+import { TotalProps } from './../../components/Checkout/Cart/Total/styles'
+import styled from 'styled-components'
+import { IcChevronRightBlack } from '../../Icons'
+import theme from '../../theme/ota'
 
 export type OpenDateProps = {
-  visibleDate?: boolean;
-};
+  visibleDate?: boolean
+}
 
-const color = theme.colors;
+const color = theme.colors
 
 export const Btn = styled.button<OpenDateProps>`
   background-color: transparent;
-  width: 100%;
-`;
+`
 
 export const Container = styled.div<OpenDateProps>`
   left: 0;
-  padding-bottom: ${({ visibleDate }) =>
-    visibleDate ? '110px' : 0};
-  position: ${({ visibleDate }) =>
-    visibleDate ? 'absolute' : 'staic'};
-  top: 30px;
+  padding-bottom: ${({ visibleDate }) => (visibleDate ? '110px' : 0)};
+  position: ${({ visibleDate }) => (visibleDate ? 'absolute' : 'relative')};
+  top: ${({ visibleDate }) => (visibleDate ? '' : '30px')};
   width: 100%;
   z-index: ${({ visibleDate }) => (visibleDate ? 40 : 0)};
 
   .rdrMonthAndYearWrapper {
     height: 26px;
     position: relative;
-  }
-
-  .rdrDateDisplayItemActive {
-    background-color: ${color.gray1} !important;
-
-    input {
-      color: ${color.black};
-    }
+    display: ${({ visibleDate }) => (visibleDate ? 'flex' : 'none')};
   }
 
   .rdrDay:not(.rdrDayPassive) .rdrInRange ~ .rdrDayNumber p,
@@ -80,12 +71,17 @@ export const Container = styled.div<OpenDateProps>`
 
   .rdrNextPrevButton {
     background-color: transparent;
-    border: 2px solid;
+    border: 2px solid ${color.gray4};
     border-radius: 50%;
     left: 0;
     position: absolute;
+    transition: ease-in-out 0.2s;
     top: 18px;
     z-index: 1;
+
+    &:hover {
+      border: 2px solid;
+    }
 
     &::before {
       background-image: url(${IcChevronRightBlack});
@@ -108,7 +104,6 @@ export const Container = styled.div<OpenDateProps>`
     left: calc(100% - 48px);
     position: absolute;
     top: 18px;
-    z-index: 1;
 
     &::before {
       bottom: 0;
@@ -139,15 +134,17 @@ export const Container = styled.div<OpenDateProps>`
   }
 
   .rdrDateDisplayWrapper {
-    background-color: ${color.white};
-  }
+    background-color: transparent;
+    display: ${({ visibleDate }) => (visibleDate ? 'none' : '')};
 
-  .rdrDateDisplay {
-    border: 1px solid ${color.text};
-    border-radius: 4px;
-    max-width: 310px;
-    margin: 0;
-    overflow: hidden;
+    .rdrDateDisplay {
+      background-color: ${color.white};
+      border: 1px solid ${color.text};
+      border-radius: 4px;
+      max-width: 310px;
+      margin: 0;
+      overflow: hidden;
+    }
   }
 
   .rdrMonth {
@@ -165,6 +162,11 @@ export const Container = styled.div<OpenDateProps>`
 
     input {
       font-size: 14px;
+      transition: ease-in-out 0.3s;
+
+      &:hover {
+        color: ${color.text};
+      }
     }
   }
 
@@ -188,7 +190,7 @@ export const Container = styled.div<OpenDateProps>`
       font-weight: 400;
       left: 14px;
       position: absolute;
-      top: 20px;
+      top: 16px;
     }
   }
 
@@ -213,15 +215,23 @@ export const Container = styled.div<OpenDateProps>`
 
   /*-------------------------------------------- */
   @media (max-width: ${theme.breakpoints.sm}) {
+    top: ${({ visibleDate }) => (visibleDate ? '0' : '30px')};
     display: flex;
     justify-content: center;
     width: 100%;
+    z-index: 99;
 
+    .rdrDateDisplayWrapper {
+      display: block;
+      padding: 10px;
+      width: 100%;
+
+      .rdrDateDisplay {
+        max-width: 100%;
+      }
+    }
     .rdrCalendarWrapper {
       width: 100%;
-    }
-    .rdrDateDisplay {
-      max-width: 100%;
     }
 
     .rdrDayNumber {
@@ -232,8 +242,7 @@ export const Container = styled.div<OpenDateProps>`
 
     .rdrMonthAndYearWrapper {
       height: ${({ visibleDate }) => (visibleDate ? 'auto' : 0)};
-      overflow: ${({ visibleDate }) =>
-        visibleDate ? '' : 'hidden'};
+      overflow: ${({ visibleDate }) => (visibleDate ? '' : 'hidden')};
       z-index: ${({ visibleDate }) => (visibleDate ? '' : -1)};
     }
 
@@ -276,8 +285,7 @@ export const Container = styled.div<OpenDateProps>`
     }
 
     .rdrMonth {
-      display: ${({ visibleDate }) =>
-        visibleDate ? '' : 'none'};
+      display: ${({ visibleDate }) => (visibleDate ? '' : 'none')};
       top: 0px;
       width: 100%;
     }
@@ -290,7 +298,7 @@ export const Container = styled.div<OpenDateProps>`
       top: 14px;
     }
   }
-`;
+`
 
 export const Footer = styled.div`
   background-color: ${color.white};
@@ -318,4 +326,4 @@ export const Footer = styled.div`
       margin-left: 3px;
     }
   }
-`;
+`

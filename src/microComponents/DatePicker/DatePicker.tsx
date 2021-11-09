@@ -1,128 +1,94 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { DateRange, DateRangeProps } from 'react-date-range';
-import { format, isThisYear } from 'date-fns';
-import locale from 'date-fns/locale/pt';
-import { parseISO } from 'date-fns';
+import React, { useEffect, useState } from 'react'
+import { diffInDays } from '@niaratech/niara-js-commons/dist/dateUtils'
 
-import 'react-date-range/dist/styles.css';
-import 'react-date-range/dist/theme/default.css';
+import theme from '../../theme/ota'
+import { Button } from '..'
 
-import { Btn, Container, Footer, OpenDateProps } from './styles';
-import { Button } from '..';
-import theme from '../../theme/ota';
-import { diffInDays } from '@niaratech/niara-js-commons/dist/dateUtils';
+import RenderDate, { RenderDateProps } from './RenderDate'
+import { Btn, Container, Footer } from './styles'
 
-export type InputDateProps = OpenDateProps &
-  DateRangeProps & {
-    priceDay?: string;
-    ColorButton?: string;
-  };
+import 'react-date-range/dist/theme/default.css'
+import 'react-date-range/dist/styles.css'
+import { useTheme } from 'styled-components'
+import { themeColor } from '../../theme'
+export type InputDateProps = RenderDateProps & {
+  priceDay?: string
+  colorButton?: string
+  colorButtonText?: string
+  rangeColor?: string
+  rangeColorText?: string
+}
 
 const InputDate: React.FC<InputDateProps> = ({
-  ColorButton,
-  ranges,
+  colorButton,
+  colorButtonText,
+  endDate,
+  focusedRange,
+  minDate,
   priceDay,
+  ranges,
+  rangeColor,
   rangeColors,
   onChange,
 }) => {
-  const [size, setSize] = useState<number>();
-  const [openDate, setOpenDate] = useState(false);
+  const [size, setSize] = useState<number>()
+  const [openDate, setOpenDate] = useState(false)
+  const [invert, setInvert] = useState(true)
+  const theme = useTheme()
 
-  const period = {
-    startDate: parseISO(
-      ranges?.startDate || new Date().toISOString(),
-    ),
-    endDate: parseISO(
-      ranges?.endDate || new Date().toISOString(),
-    ),
-  };
-
-  const nights =
-    diffInDays(period?.endDate, period?.startDate) || 1;
+  const nights = diffInDays(ranges[0]?.endDate, ranges[0]?.startDate) || 1
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setSize(window.innerWidth);
+      setSize(window.innerWidth)
     }
 
     const onResize = () => {
-      setSize(window.innerWidth);
-    };
-    window.addEventListener('resize', onResize);
-  }, []);
-
-  // const handleSelect = (ranges: any) => {
-  //   setstartDate(ranges.selection.startDate);
-  //   setEndDate(ranges.selection.endDate);
-  // };
-
-  // const date = {
-  //   startDate: startDate,
-  //   endDate: endDate,
-  //   key: 'selection',
-  // };
-
-  const customDayContent = (day: number) => {
-    let extraDot = null;
-    if (isThisYear(day)) {
-      extraDot = <p>{priceDay}</p>;
+      setSize(window.innerWidth)
     }
-    return (
-      <div>
-        {extraDot}
-        <span>{format(day, 'd')}</span>
-      </div>
-    );
-  };
-  console.log(ranges);
+    window.addEventListener('resize', onResize)
+  }, [])
+
+  const customDate = (date: any) =>
+    date
+      .toLocaleDateString('pt-BR', {
+        weekday: 'short',
+        day: '2-digit',
+        month: 'short',
+      })
+      .replace('de', ' ')
+      .replace('.', '')
+
   return (
     <>
       {size < 768 ? (
         openDate ? (
           <Container visibleDate>
-            <DateRange
-              showSelectionPreview
-              direction="vertical"
-              linkedCalendars={true}
+            <RenderDate
+              endDate={endDate}
               ranges={ranges}
-              onChange={onChange}
-              months={2}
-              dayContentRenderer={customDayContent}
               priceDay={priceDay}
-              locale={locale}
-              rangeColors={rangeColors}
+              rangeColors={[themeColor('rangeColor', 'primary')({ rangeColor, theme })]}
+              minDate={minDate}
+              months={2}
+              focusedRange={focusedRange}
+              onChange={onChange}
             />
 
             <Footer>
-              {ranges.map(item => (
+              {ranges.map((item) => (
                 <div key={item.key}>
                   <h4>
-                    {item.startDate
-                      .toLocaleDateString('pt-BR', {
-                        weekday: 'short',
-                        day: '2-digit',
-                        month: 'short',
-                      })
-                      .replace('de', ' ')
-                      .replace('.', '')}
-                    -{' '}
-                    {item.endDate
-                      .toLocaleDateString('pt-BR', {
-                        weekday: 'short',
-                        day: '2-digit',
-                        month: 'short',
-                      })
-                      .replace('de', ' ')
-                      .replace('.', '')}
+                    {customDate(item.startDate)}- {customDate(item.endDate)}
                   </h4>
-                  {console.log('nights', nights)}
-                  <p>({nights} Noite) </p>
+                  {nights > 1 ? <p>{nights} Noites</p> : <p>{nights} Noite</p>}
                 </div>
               ))}
 
               <Button
-                color={ColorButton}
-                colorText={`${theme.colors.white}`}
+                color={themeColor('colorButton', 'primary')({ colorButton, theme })}
+                colorText={themeColor('colorButtonText', 'primaryReadable')({ colorButtonText, theme })}
+                disabled={diffInDays(ranges[0].endDate, ranges[0].startDate) === 0}
                 block
                 type="button"
                 onClick={() => setOpenDate(false)}
@@ -133,40 +99,52 @@ const InputDate: React.FC<InputDateProps> = ({
           </Container>
         ) : (
           <Container>
-            <Btn onClick={() => setOpenDate(true)}>
-              <DateRange
-                showSelectionPreview
-                direction="horizontal"
-                linkedCalendars={true}
+            <Btn type="button" onClick={() => setOpenDate(true)}>
+              <RenderDate
+                endDate={endDate}
                 ranges={ranges}
-                onChange={onChange}
-                months={0}
-                dayContentRenderer={customDayContent}
-                locale={locale}
-                rangeColors={rangeColors}
                 priceDay={priceDay}
+                rangeColors={[themeColor('rangeColor', 'primary')({ rangeColor, theme })]}
+                months={0}
+                focusedRange={focusedRange}
+                onChange={onChange}
               />
             </Btn>
           </Container>
         )
       ) : (
         <Container>
-          <DateRange
-            showSelectionPreview
-            direction="horizontal"
-            linkedCalendars={true}
-            ranges={ranges}
-            onChange={onChange}
-            months={2}
-            dayContentRenderer={customDayContent}
-            locale={locale}
-            rangeColors={rangeColors}
-            priceDay={priceDay}
-          />
+          <Btn type="button" onClick={() => setOpenDate(!openDate)}>
+            <RenderDate
+              horizontal
+              endDate={endDate}
+              ranges={ranges}
+              priceDay={priceDay}
+              rangeColors={[themeColor('rangeColor', 'primary')({ rangeColor, theme })]}
+              months={0}
+              focusedRange={focusedRange}
+              onChange={onChange}
+            />
+          </Btn>
+
+          {openDate && (
+            <Container visibleDate>
+              <RenderDate
+                horizontal
+                endDate={endDate}
+                ranges={ranges}
+                priceDay={priceDay}
+                rangeColors={[themeColor('rangeColor', 'primary')({ rangeColor, theme })]}
+                months={openDate ? 2 : 0}
+                focusedRange={focusedRange}
+                onChange={onChange}
+              />
+            </Container>
+          )}
         </Container>
       )}
     </>
-  );
-};
+  )
+}
 
-export default InputDate;
+export default InputDate
