@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { width } from 'styled-system';
 import { Swiper as SwiperReact } from 'swiper/react';
 import { IcClose, IcCloseGrey } from '../../icons';
 import theme from '../../styles/colors';

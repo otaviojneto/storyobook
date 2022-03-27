@@ -1,14 +1,14 @@
-import { Header } from './../RoomTypes/styles';
+// import { Header } from './../RoomTypes/styles';
 import styled from 'styled-components';
 import { theme } from 'styled-tools';
 import { Swiper as SwiperReact } from 'swiper/react';
 import {
   IcArrowLeft,
-  IcChevronRight,
+  // IcChevronRight,
   IcChevronRightBlack,
-  IcClose,
-  IccloseWhite,
-} from '../../Icons';
+  // IcClose,
+  IcCloseWhite,
+} from '../../icons';
 
 export const Content = styled.div`
   background-color: #000000cc;
@@ -32,7 +32,7 @@ export const Content = styled.div`
 
 export const Close = styled.button`
   background-color: transparent;
-  background-image: url(${IccloseWhite});
+  background-image: url(${IcCloseWhite});
   background-repeat: no-repeat;
   height: 24px;
   position: absolute;
@@ -44,7 +44,7 @@ export const Close = styled.button`
 
   &:hover,
   &:active {
-    background-image: url(${IccloseWhite});
+    background-image: url(${IcCloseWhite});
   }
 `;
 

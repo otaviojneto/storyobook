@@ -23,7 +23,7 @@ const Panel: React.FC<AccordionType> = ({
   bgColorHeader,
   expandIcon = IcChevronDown,
   children,
-  colorDivider = `${theme.colors?.gray}`,
+  colorDivider = `${theme.colors?.grey}`,
   contentBg = `${theme.colors?.white}`,
   colorHeaderText,
   icon,

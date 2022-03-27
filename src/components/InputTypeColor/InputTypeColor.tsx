@@ -1,7 +1,7 @@
 import { ClickAwayListener } from '@material-ui/core'
 import React, { useState } from 'react'
 import { HexColorPicker } from 'react-colorful'
-import { arrowDownLabel, arrowUpLabel } from '../../Icons'
+// import { arrowDownLabel, arrowUpLabel } from '../../Icons'
 import { Container, ContentPicker, ContentPickerHero, HeroPicker, Icon, InputBorder, Label, Swatch } from './styles'
 
 export type InputTypeColorProps = {
@@ -26,7 +26,7 @@ const InputTypeColor: React.FC<InputTypeColorProps> = ({ color, onChange, text }
 
               <input type="text" readOnly value={color} />
 
-              <Icon src={openColorPicker ? arrowUpLabel : arrowDownLabel} alt="" />
+              {/* <Icon src={openColorPicker ? arrowUpLabel : arrowDownLabel} alt="" /> */}
             </InputBorder>
           </Label>
 
